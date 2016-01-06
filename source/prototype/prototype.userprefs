@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="ihost/ihost.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ihost/Program.cs">
+    <Files>
+      <File FileName="foointeractions/Content/index.html" Line="11" Column="1" />
+      <File FileName="foointeractions/Program.cs" Line="17" Column="15" />
+      <File FileName="ihost/Program.cs" Line="75" Column="7" />
+      <File FileName="ihost/ConsoleServiceProvider.cs" Line="27" Column="57" />
+      <File FileName="foointeractions/Content/error.html" Line="7" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

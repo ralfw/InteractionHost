@@ -1,0 +1,2 @@
+﻿/process;mono foointeractions.exe;0:dlg.html;1:Content/error.html
+/rest;mono foointeractions.exe
