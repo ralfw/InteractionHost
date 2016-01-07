@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ihost", "ihost\ihost.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foointeractions", "foointeractions\foointeractions.csproj", "{F72D4510-E520-4E46-9F3E-88F75234AE80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc.security", "calc.security\calc.security.csproj", "{59B16D4C-020A-4A53-B338-82E0D8AA98A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc.engine", "calc.engine\calc.engine.csproj", "{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -18,6 +22,18 @@ Global
 		{136B0A59-2CD5-4095-BE9B-B4E9880AA263}.Default|Any CPU.Build.0 = Debug|x86
 		{136B0A59-2CD5-4095-BE9B-B4E9880AA263}.Release|x86.ActiveCfg = Release|x86
 		{136B0A59-2CD5-4095-BE9B-B4E9880AA263}.Release|x86.Build.0 = Release|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Debug|x86.ActiveCfg = Debug|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Debug|x86.Build.0 = Debug|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Default|Any CPU.ActiveCfg = Debug|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Default|Any CPU.Build.0 = Debug|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Release|x86.ActiveCfg = Release|x86
+		{59B16D4C-020A-4A53-B338-82E0D8AA98A8}.Release|x86.Build.0 = Release|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Debug|x86.ActiveCfg = Debug|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Debug|x86.Build.0 = Debug|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Default|Any CPU.ActiveCfg = Debug|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Default|Any CPU.Build.0 = Debug|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Release|x86.ActiveCfg = Release|x86
+		{DC6E55F7-E092-4582-BC1D-E3ACAC8FF711}.Release|x86.Build.0 = Release|x86
 		{F72D4510-E520-4E46-9F3E-88F75234AE80}.Debug|x86.ActiveCfg = Debug|x86
 		{F72D4510-E520-4E46-9F3E-88F75234AE80}.Debug|x86.Build.0 = Debug|x86
 		{F72D4510-E520-4E46-9F3E-88F75234AE80}.Default|Any CPU.ActiveCfg = Debug|x86

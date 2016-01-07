@@ -9,16 +9,16 @@ namespace foointeractions
 	{
 		public static int Main (string[] args)
 		{
-			using (var p = new ConsoleServicePortal ()) {
+			Console.Error.WriteLine ("foointeractions...");
+
+			using (var p = new JsonConsoleServicePortal ()) {
 				var input = p.Receive ();
 
-				var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(input);
-
-				if (dict["id"].IndexOf ("9") >= 0) {
-					p.Send ("{'errormsg': 'Bummer!'}");
+				if (input["id"].ToString().IndexOf ("9") >= 0) {
+					p.Send (new Dictionary<string, object>{{"errormsg", "Bummer!"}});
 					return 1;
 				} else {
-					p.Send (string.Format("{'time': '{0}'}", DateTime.Now.ToString ()));
+					p.Send (new Dictionary<string, object>{{"time", DateTime.Now.ToString()}});
 					return 0;
 				}
 			}
@@ -26,23 +26,4 @@ namespace foointeractions
 	}
 
 
-	public class ConsoleServicePortal : IDisposable {
-		public string Receive() {
-			var message = "";
-			var l = "";
-			while ((l = Console.ReadLine()) != null) {
-				if (message != "") message += "\n";
-				message += l;
-			}
-			return message;
-		}
-
-		public void Send(string message) {
-			Console.Write(message);
-		}
-
-		#region IDisposable implementation
-		public void Dispose () {}
-		#endregion
-	}
 }

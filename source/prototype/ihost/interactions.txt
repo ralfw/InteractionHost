@@ -1,3 +1,9 @@
 ﻿/process;mono foointeractions.exe;0:dlg.html;1:error.html
 /rest;mono foointeractions.exe
 /dlg;;0:dlg.html
+
+/calc;mono calc.engine.exe reset;0:login.html
+POST:/login;mono calc.security.exe login;0:calculator.html;1:login.html
+/changepassword;mono calc.security.exe changepassword;0:calculator.html;1:changepassword.html
+/appenddigit;mono calc.engine.exe appenddigit;0:calculator.html
+/executeop;mono calc.engine.exe executeop;0:calculator.html

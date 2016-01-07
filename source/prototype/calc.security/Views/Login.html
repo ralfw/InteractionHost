@@ -1,0 +1,21 @@
+﻿
+<html>
+	<head>
+		<title>Secure Calculator Login</title>
+	</head>
+	<body>
+	<h3>Secure Calculator Login</h3>
+	<form action="/login" method="post">
+	User name: <input type="text" name="Username" @If.Failed value="@Model.Username" @EndIf><br>
+	Password: <input type="text" name="Password" value=""><br>
+
+	@If.Failed
+	<br>
+	Error: @Model.Errormsg
+	@EndIf
+
+	<br>
+	<input type="submit" value="Login">
+	</form>
+	</body>
+</html>
