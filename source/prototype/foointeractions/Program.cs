@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace foointeractions
 {
@@ -9,11 +12,13 @@ namespace foointeractions
 			using (var p = new ConsoleServicePortal ()) {
 				var input = p.Receive ();
 
-				if (input.IndexOf ("9") >= 0) {
-					p.Send ("errormsg=Bummer!");
+				var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(input);
+
+				if (dict["id"].IndexOf ("9") >= 0) {
+					p.Send ("{'errormsg': 'Bummer!'}");
 					return 1;
 				} else {
-					p.Send ("time=" + DateTime.Now.ToString ());
+					p.Send (string.Format("{'time': '{0}'}", DateTime.Now.ToString ()));
 					return 0;
 				}
 			}

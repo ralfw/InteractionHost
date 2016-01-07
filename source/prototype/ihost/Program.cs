@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 using Nancy;
+using Newtonsoft.Json;
 
 namespace ihost
 {
@@ -31,7 +32,7 @@ namespace ihost
 				var lcols = l.Split(';');
 				var responses = lcols.Skip(2).Select(r => {
 					var rcols = r.Split(':');
-					return new {exitcode = int.Parse(rcols[0]), filepath = rcols[1]};
+					return new {exitcode = int.Parse(rcols[0]), viewpath = rcols[1]};
 				});
 				return new {route = lcols[0], cmd = lcols[1], responses = responses};
 			});
@@ -43,24 +44,29 @@ namespace ihost
 
 					var input = "";
 					var d = (DynamicDictionary)routeparams;
+					var jd = new Dictionary<string,string>();
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
 						input += k + ":" + d [k];
+						jd[k] = d[k];
 					};
 					d = (DynamicDictionary)Request.Query;
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
 						input += k + ":" + d [k];
+						jd[k] = d[k];
 					};
 					d = (DynamicDictionary)Request.Form;
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
 						input += k + ":" + d [k];
+						jd[k] = d[k];
 					};
 						
+					input = Newtonsoft.Json.JsonConvert.SerializeObject(jd, Formatting.Indented);
 					Console.WriteLine(input);
 
 					int exitCode = 0;
@@ -81,7 +87,7 @@ namespace ihost
 
 					var response = i.responses.FirstOrDefault(r => r.exitcode == exitCode);
 					if (response != null) {
-						return View[response.filepath];
+						return View[response.viewpath];
 					}
 					else
 						return output;
