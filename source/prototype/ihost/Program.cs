@@ -46,42 +46,42 @@ namespace ihost
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
-						input += "route." + k + ":" + d [k];
+						input += k + ":" + d [k];
 					};
 					d = (DynamicDictionary)Request.Query;
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
-						input += "query." + k + ":" + d [k];
+						input += k + ":" + d [k];
 					};
 					d = (DynamicDictionary)Request.Form;
 					foreach (var k in d.Keys) {
 						if (input != "")
 							input += "\n";
-						input += "form." + k + ":" + d [k];
+						input += k + ":" + d [k];
 					};
 						
 					Console.WriteLine(input);
 
-					var cmdParts = i.cmd.Split(new[]{' '}, 2);
-					Console.WriteLine("run {0} with: {1}", cmdParts[0], cmdParts[1]);
-
 					int exitCode = 0;
 					var output = "";
-					using(var cli = new ConsoleServiceProvider(cmdParts[0], cmdParts[1])) {
-						cli.Process(input, out exitCode, out output);
-						Console.WriteLine("exited with: {0}", exitCode);
-						Console.WriteLine(output);
+
+					if (i.cmd != "") {
+						var cmdParts = i.cmd.Split(new[]{' '}, 2);
+						Console.WriteLine("run {0} with: {1}", cmdParts[0], cmdParts[1]);
+
+						using(var cli = new ConsoleServiceProvider(cmdParts[0], cmdParts[1])) {
+							cli.Process(input, out exitCode, out output);
+							Console.WriteLine("exited with: {0}", exitCode);
+							Console.WriteLine(output);
+						}
 					}
+					else
+						output = input;
 
 					var response = i.responses.FirstOrDefault(r => r.exitcode == exitCode);
 					if (response != null) {
-						if (response.filepath.StartsWith("Content/", StringComparison.InvariantCultureIgnoreCase))
-							return Response.AsRedirect(response.filepath);
-						else {
-							// convert output into view model
-							return View[response.filepath];
-						}
+						return View[response.filepath];
 					}
 					else
 						return output;

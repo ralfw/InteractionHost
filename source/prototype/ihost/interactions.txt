@@ -1,2 +1,3 @@
-﻿/process;mono foointeractions.exe;0:dlg.html;1:Content/error.html
+﻿/process;mono foointeractions.exe;0:dlg.html;1:error.html
 /rest;mono foointeractions.exe
+/dlg;;0:dlg.html
